@@ -1,0 +1,346 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.nav-container {
+  text-align: center; /* Centers the navigation bar */
+  margin: 0 auto; /* Centers the container if it has a defined width */
+}
+.container {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Space between items */
+  align-items: flex-start; /* Align items at the start */
+}
+
+.description {
+  flex: 4; /* Allow description to take available space */
+  margin-right: 20px; /* Space between description and team */
+}
+
+.team {
+  margin:30px;
+  border:3px solid #ffbd6d;
+  border-radius:20px;
+  font-size:25px;
+  flex: 1 0 200px; /* Fixed width for team section, adjust as needed */
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+.team:hover{
+  transform: scale(1.2);
+  margin-right:50px;
+}
+
+#nav {
+  
+  list-style-type: none;
+  margin-top:0;
+  padding: 0;
+  overflow: hidden;
+  display:inline-block;
+  text-align:center;
+  border-radius:8px;
+  border:solid #ffbd6d 2px;
+}
+h2
+{
+  margin:20px;
+  font-family: "Arial", sans-serif;
+  color: #ffbd6d;
+}
+p{
+  font-family: "Arial", sans-serif;
+  margin:20px;
+}
+.heading{
+  margin:25px;
+  color:#404040;
+  background-color: #ffbd6d;
+  padding:10 10 1 10;
+  border: 1px #ffbd6d groove;
+  border-radius:8px;
+  margin-bottom:0;
+  font-family: "Arial", sans-serif;
+}
+.heading span {
+  opacity: 0; /* Initially hide the letters */
+  display: inline-block;
+  font-size: 1em; /* Adjust size if necessary */
+  animation: fadeIn 0.4s forwards; /* Animation for each letter */
+  animation-delay: calc(0.09s * var(--i)); /* Progressive delay based on index */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fade in each letter */
+  }
+}
+
+
+
+.li {
+  display:inline;
+  float: left;
+}
+
+.li a {
+  font-family: "Arial", sans-serif;
+  display: inline-block;
+  color: #ffbd6d;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px 16px;
+  margin-left:10px;
+  margin-right:10px;
+  text-decoration: none;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+li a:hover {
+  transform: scale(1.25);
+  background-color: #ffbd6d;
+  color: #404040;
+  {% comment %} color: #feda6a; {% endcomment %}
+  font-weight: bold;
+}
+.form-style button{
+  font-family: "Arial", sans-serif;
+  width: 89%;
+	height:70%;
+	padding: 5%;
+	background: #ffbd6d;
+  border:solid #ffbd6d 2px;
+  border-radius:8px;
+	color: #393f4d;
+  font-weight: bold;
+  font-size: 28px;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.form-style button:hover {
+  border:solid #ffbd6d 2px;
+  height:70%;
+  background:#404040;
+  color: #ffbd6d;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+.split {
+  font-family: "Arial", sans-serif;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 50;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.left {
+  left: 15;
+  border-right: 0px #feda6a solid;
+}
+
+.right {
+  right: 0;
+  border-left: 1px #feda6a solid;
+}
+
+.mytext {
+  font-family: "Arial", sans-serif;
+  background:#404040;
+  border-radius:20px;
+  box-shadow: 0px 0px 15px 0px black;
+  border:1px solid #393f4d;
+  padding:4px;
+  padding-left:20px;
+  margin-right:10px;
+  float:left;
+  height:32px;
+  overflow:hidden;
+  line-height:16px;
+  width: 300px;
+  margin-left: 54px;
+  color:#ffffff;
+  }
+
+  .mic {
+    margin-left:10px;
+      border:1px solid #393f4d;
+      border-radius:20px;
+      background:#ffbd6d;
+      vertical-align:top;
+      float:left;
+      height:42px;
+      overflow:hidden;
+      width:100px;
+      text-align:center;
+      line-height:16px;
+  }
+  .mic.tapped{
+    border:solid #00FF9C 3px;
+    background-color:#404040;
+  }
+  
+
+.submit {
+    font-family: "Arial", sans-serif;
+    border:1px solid #ffbd6d;
+    height: 42px;
+    width: 160px;
+    text-align: center;
+    background-color: #ffbd6d;
+    color: #404040;
+    font-weight: bold;
+    font-size: 24px;
+    vertical-align:top;
+    transition: transform 0.1s ease, color 0.5s ease;
+    border-radius:20px;
+}
+.submit:active{
+  
+}
+.submit:hover {
+  background-color:#404040;
+  color:#ffbd6d;
+  border:3px solid #ffbd6d;
+  {% comment %} transform: scale(1.1); {% endcomment %}
+}
+.td {
+  color: #ffbd6d;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+body
+{
+  background-color: #404040
+}
+
+.form-style{
+	font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+
+}
+.form-style h1, .form-style a{
+	padding: 20px 0;
+  font-size: 24px;
+	font-weight: bold;
+  font-family: "Times New Roman";
+	text-align: center;
+	margin: -16px -16px 16px -16px;
+  color:#ffbd6d
+}
+.form-style input[type="text"],
+.form-style input[type="password"],
+.form-style input[type="date"],
+.form-style input[type="datetime"],
+.form-style input[type="email"],
+.form-style input[type="number"],
+.form-style input[type="search"],
+.form-style input[type="time"],
+.form-style input[type="url"],
+.form-style textarea,
+.form-style select
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color:#0000a0 ;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.form-style input[type="text"]:focus,
+.form-style input[type="password"]:focus,
+.form-style input[type="date"]:focus,
+.form-style input[type="datetime"]:focus,
+.form-style input[type="email"]:focus,
+.form-style input[type="number"]:focus,
+.form-style input[type="search"]:focus,
+.form-style input[type="time"]:focus,
+.form-style input[type="url"]:focus,
+.form-style textarea:focus,
+.form-style select:focus
+{
+	box-shadow: 0 0 5px #0000a0;
+	padding: 3%;
+	border: 1px solid #0000a0;
+}
+
+.site-form span,label{
+  color: #ffbd6d;
+}
+.errorlist{
+    color: red;
+    font-weight: bold;
+}
+
+</style>
+<title>Homepage</title>
+</head>
+<div class="heading">
+  <h1 align="center">
+    <span style="--i: 1">E</span><span style="--i: 2">n</span><span style="--i: 3">g</span><span style="--i: 4">l</span><span style="--i: 5">i</span><span style="--i: 6">s</span><span style="--i: 7">h</span> 
+    <span style="--i: 8"> </span> <!-- Space between words -->
+    <span style="--i: 9">A</span><span style="--i: 10">u</span><span style="--i: 11">d</span><span style="--i: 12">i</span><span style="--i: 13">o</span> 
+    <span style="--i: 14"> </span> <!-- Space between words -->
+    <span style="--i: 15">T</span><span style="--i: 16">o</span> 
+    <span style="--i: 17"> </span> <!-- Space between words -->
+    <span style="--i: 18">S</span><span style="--i: 19">i</span><span style="--i: 20">g</span><span style="--i: 21">n</span> 
+    <span style="--i: 22"> </span> <!-- Space between words -->
+    <span style="--i: 23">L</span><span style="--i: 24">a</span><span style="--i: 25">n</span><span style="--i: 26">g</span><span style="--i: 27">u</span><span style="--i: 28">a</span><span style="--i: 29">g</span><span style="--i: 30">e</span> 
+    <span style="--i: 31"> </span> <!-- Space between words -->
+    <span style="--i: 32">T</span><span style="--i: 33">o</span><span style="--i: 34">o</span><span style="--i: 35">l</span>
+  </h1>
+</div>
+
+
+<br>
+<body>
+  <div class="nav-container">
+<ul id="nav">
+  <li class="li"><a class="active" href="{% url 'home' %}">Home</a></li>
+  <li class="li"><a href="{% url 'animation' %}">Convertor</a></li>
+  {% if not user.is_authenticated %}
+  <li class="li"><a href="{% url 'signup' %}">Sign Up</a></li>
+  {% endif %}
+  {% if user.is_authenticated %}
+  <li class="li"><a href="{% url 'logout' %}">Log-Out</a></li>
+  {% else %}
+    <li class="li"><a href="{% url 'login' %}">Log-in</a></li>
+  {% endif %}
+  <li class="li"><a href="{% url 'contact' %}">Contact</a></li>
+  <li class="li"><a href="{% url 'about' %}">About</a></li>
+</ul>
+</div>
+
+<div class="wrapper" >
+  {% block content %}
+  {% endblock %}
+</div>
+
+
+</body>
+</html>
